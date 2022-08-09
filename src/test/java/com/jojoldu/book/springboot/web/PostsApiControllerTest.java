@@ -80,7 +80,8 @@ public class PostsApiControllerTest {
                         .title("title")
                         .content("content")
                         .author("author")
-                        .build());
+                        .build()
+        );
 
         long updateId = savedPosts.getId();
 
