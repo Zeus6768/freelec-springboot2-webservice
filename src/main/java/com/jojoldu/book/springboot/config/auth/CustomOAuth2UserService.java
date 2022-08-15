@@ -1,6 +1,6 @@
 package com.jojoldu.book.springboot.config.auth;
 
-import com.jojoldu.book.springboot.config.auth.dto.OAuthAttibutes;
+import com.jojoldu.book.springboot.config.auth.dto.OAuthAttributes;
 import com.jojoldu.book.springboot.config.auth.dto.SessionUser;
 import com.jojoldu.book.springboot.domain.user.User;
 import com.jojoldu.book.springboot.domain.user.UserRepository;
@@ -35,7 +35,7 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 
         String userNameAttributeName = userRequest.getClientRegistration().getProviderDetails().getUserInfoEndpoint().getUserNameAttributeName();
 
-        OAuthAttibutes attibutes = OAuthAttibutes.of(registrationId, userNameAttributeName, oAuth2User.getAttributes());
+        OAuthAttributes attibutes = OAuthAttributes.of(registrationId, userNameAttributeName, oAuth2User.getAttributes());
 
         User user = saveOrUpdate(attibutes);
 
@@ -49,7 +49,7 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 
     }
 
-    private User saveOrUpdate(OAuthAttibutes attibutes) {
+    private User saveOrUpdate(OAuthAttributes attibutes) {
 
         User user = userRepository.findByEmail(attibutes.getEmail())
                 .map(entity -> entity.update(attibutes.getName(), attibutes.getPicture()))

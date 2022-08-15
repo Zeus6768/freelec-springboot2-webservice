@@ -8,7 +8,7 @@ import lombok.Getter;
 import java.util.Map;
 
 @Getter
-public class OAuthAttibutes {
+public class OAuthAttributes {
 
     private final Map<String, Object> attributes;
     private final String nameAttributeKey;
@@ -17,7 +17,7 @@ public class OAuthAttibutes {
     private final String picture;
 
     @Builder
-    public OAuthAttibutes(Map<String, Object> attributes, String nameAttributeKey, String name, String email, String picture) {
+    public OAuthAttributes(Map<String, Object> attributes, String nameAttributeKey, String name, String email, String picture) {
         this.attributes = attributes;
         this.nameAttributeKey = nameAttributeKey;
         this.name = name;
@@ -25,7 +25,7 @@ public class OAuthAttibutes {
         this.picture = picture;
     }
 
-    public static OAuthAttibutes of(String registrationId, String userNameAttributeName, Map<String, Object> attributes) {
+    public static OAuthAttributes of(String registrationId, String userNameAttributeName, Map<String, Object> attributes) {
 
         if ("naver".equals(registrationId)) {
             return ofNaver("id", attributes);
@@ -34,8 +34,8 @@ public class OAuthAttibutes {
         return ofGoogle(userNameAttributeName, attributes);
     }
 
-    public static OAuthAttibutes ofGoogle(String usernameAttributeName, Map<String, Object> attributes) {
-        return OAuthAttibutes.builder()
+    public static OAuthAttributes ofGoogle(String usernameAttributeName, Map<String, Object> attributes) {
+        return OAuthAttributes.builder()
                 .name((String) attributes.get("name"))
                 .email((String) attributes.get("email"))
                 .picture((String) attributes.get("picture"))
@@ -44,11 +44,11 @@ public class OAuthAttibutes {
                 .build();
     }
 
-    public static OAuthAttibutes ofNaver(String userNameAttributeName, Map<String, Object> attributes) {
+    public static OAuthAttributes ofNaver(String userNameAttributeName, Map<String, Object> attributes) {
 
         Map<String, Object> response = (Map<String, Object>) attributes.get("response");
 
-        return OAuthAttibutes.builder()
+        return OAuthAttributes.builder()
                 .name((String) response.get("name"))
                 .email((String) response.get("email"))
                 .picture((String) response.get("profile_image"))
