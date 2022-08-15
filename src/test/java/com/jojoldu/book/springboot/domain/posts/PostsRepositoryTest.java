@@ -25,7 +25,7 @@ public class PostsRepositoryTest {
     }
 
     @Test
-    public void load() {
+    public void 게시글저장_불러오기() {
 
         // given
         String title = "테스트 게시글";
@@ -49,7 +49,7 @@ public class PostsRepositoryTest {
     }
 
     @Test
-    public void saveBaseTimeEntity() {
+    public void saveBaseTimeEntity_등록() {
 
         // given
         LocalDateTime now = LocalDateTime.of(2022, 8, 9, 0, 0, 0);
