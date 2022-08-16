@@ -40,3 +40,7 @@ dependencies {
 
     annotationProcessor 'org.projectlombok:lombok'
 }
+
+jar {
+    enabled = false
+}
