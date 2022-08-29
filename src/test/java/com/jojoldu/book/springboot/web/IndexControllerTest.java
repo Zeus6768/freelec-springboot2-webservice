@@ -1,7 +1,5 @@
 package com.jojoldu.book.springboot.web;
 
-import com.jojoldu.book.springboot.domain.posts.Posts;
-import com.jojoldu.book.springboot.domain.posts.PostsRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +16,6 @@ public class IndexControllerTest {
 
     @Autowired
     private TestRestTemplate restTemplate;
-
-    @Autowired
-    private PostsRepository postsRepository;
 
     @Test
     public void 메인페이지_로딩() {
