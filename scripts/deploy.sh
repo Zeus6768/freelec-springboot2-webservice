@@ -11,7 +11,7 @@ echo "> Check working application PID"
 
 CURRENT_PID=$(pgrep -fl freelec-springboot2-webservice | grep jar | awk '{print $1}')
 
-echo "Working application PID: $CURRENT_PID"
+echo "> Working application PID: $CURRENT_PID"
 
 if [ -z "$CURRENT_PID" ]; then
   echo "> No working application."
