@@ -2,7 +2,6 @@
 .build
 .idea
 application-oauth.properties
-application-real.properties
 application-real-db.properties
 
 # gitignore.io
