@@ -24,7 +24,7 @@ public class IndexControllerTest {
         String body = this.restTemplate.getForObject("/", String.class);
 
         // then
-        assertThat(body).isNotBlank();
+        assertThat(body).contains("스프링부트");
 
     }
 
