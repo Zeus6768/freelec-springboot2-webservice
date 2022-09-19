@@ -24,7 +24,7 @@ do
     switch_proxy
     break
   else
-    echo "> No response from Health Check. Server may not be working status."
+    echo "> No response from Health Check. Server may not be in working status."
     echo "> Health Check: ${RESPONSE}"
   fi
 
