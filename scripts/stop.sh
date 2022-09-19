@@ -9,7 +9,8 @@ IDLE_PORT=$(find_idle_port)
 echo "> $IDLE_PORT 에서 실행중인 애플리케이션의 pid 확인"
 IDLE_PID=$(lsof -ti tcp:${IDLE_PORT})
 
-if [ -z ${IDLE_PORT} ] then
+if [ -z ${IDLE_PORT} ]
+then
   echo "> 실행중인 애플리케이션이 없으므로 종료하지 않습니다."
 else
   echo "> kill -15 $IDLE_PID"

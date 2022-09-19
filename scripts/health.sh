@@ -12,12 +12,14 @@ echo "> IDLE_PORT: $IDLE_PORT"
 echo "> curl -s http://localhost:$IDLE_PORT/profile"
 sleep 5
 
-for RETRY_COUNT in {1..10} do
+for RETRY_COUNT in {1..10}
+do
 
   RESPONSE=$(curl -s http://localhost:${IDLE_PORT}/profile)
   UP_COUNT=$(echo ${RESPONSE} | grep 'real' | wc -l)
 
-  if [ ${UP_COUNT} -ge 1 ] then
+  if [ ${UP_COUNT} -ge 1 ]
+  then
     echo "> Health Check Success"
     switch_proxy
     break
@@ -26,7 +28,8 @@ for RETRY_COUNT in {1..10} do
     echo "> Health Check: ${RESPONSE}"
   fi
 
-  if [ ${RETRY_COUNT} -eq 10 ] then
+  if [ ${RETRY_COUNT} -eq 10 ]
+  then
     echo "> Health Check Failure"
     echo "> nginx에 연결하지 않고 배포를 종료합니다."
     exit 1
